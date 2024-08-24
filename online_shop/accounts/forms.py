@@ -32,6 +32,11 @@ class UserRegistrationForm(forms.Form):
             attrs={'class': 'form-control', 'placeholder': 'password'}
         )
     )
+    CHOICES=((True, 'YES, продаю',), (False, 'No, покупаю',))
+    is_manager = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+
+
+
 
 
 class ManagerLoginForm(forms.Form):
@@ -50,4 +55,4 @@ class ManagerLoginForm(forms.Form):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['full_name', 'email']
+        fields = ['full_name', 'email', 'description']

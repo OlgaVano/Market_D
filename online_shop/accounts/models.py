@@ -13,6 +13,8 @@ class User(AbstractBaseUser):
     likes = models.ManyToManyField(Product, blank=True, related_name='likes')
     # set a manager role for shop manager to access orders and products
     is_manager = models.BooleanField(default=False)
+    description = models.TextField(default='')
+
 
     objects = UserManager()
 
